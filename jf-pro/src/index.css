@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #ffffff;
+    color: #1F2937;
+  }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F5F3FF; }
+  ::-webkit-scrollbar-thumb { background: #C4B5FD; border-radius: 3px; }
+}
+
+@layer utilities {
+  /* ── Brand surface ── */
+  .card {
+    background: #ffffff;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 14px;
+  }
+  .card-soft {
+    background: #F5F3FF;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 14px;
+  }
+  .card-hover {
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .card-hover:hover {
+    border-color: #A78BFA;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
+  }
+
+  /* ── Tier badges ── */
+  .tier-basic  { background: #F3F4F6; color: #6B7280; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .tier-premium{ background: #EDE9FE; color: #5B21B6; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+  .tier-elite  { background: #FEF3C7; color: #92400E; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 100px; }
+
+  /* ── Availability dot ── */
+  .avail-on  { display:inline-flex;align-items:center;gap:4px;background:#DCFCE7;color:#166534;font-size:11px;font-weight:600;padding:3px 8px;border-radius:100px; }
+  .avail-off { display:inline-flex;align-items:center;gap:4px;background:#F3F4F6;color:#6B7280;font-size:11px;font-weight:600;padding:3px 8px;border-radius:100px; }
+  .dot-on  { width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0; }
+  .dot-off { width:6px;height:6px;border-radius:50%;background:#9CA3AF;flex-shrink:0; }
+
+  /* ── Aadhaar verified badge ── */
+  .aadh-badge { display:inline-flex;align-items:center;gap:4px;background:#DBEAFE;color:#1E3A8A;font-size:11px;font-weight:700;padding:3px 9px;border-radius:100px; }
+
+  /* ── Form elements ── */
+  .jf-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1F2937;
+    background: #fff;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.15s;
+  }
+  .jf-input:focus { border-color: #A78BFA; }
+  .jf-input.err   { border-color: #EF4444; }
+
+  .jf-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1.5px solid #E9D5FF;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1F2937;
+    background: #fff;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .jf-select:focus { border-color: #A78BFA; }
+
+  /* ── Buttons ── */
+  .btn-primary {
+    background: #7C3AED;
+    color: #fff;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .btn-primary:hover { background: #5B21B6; }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-ghost {
+    background: #F5F3FF;
+    color: #5B21B6;
+    border: 1.5px solid #E9D5FF;
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .btn-ghost:hover { background: #EDE9FE; }
+
+  .btn-full {
+    width: 100%;
+    background: #7C3AED;
+    color: #fff;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+  }
+  .btn-full:hover { background: #5B21B6; }
+  .btn-full:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .btn-block {
+    width: 100%;
+    background: #7C3AED;
+    color: #fff;
+    border: none;
+    padding: 9px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    margin-top: 8px;
+  }
+  .btn-block:hover { background: #5B21B6; }
+
+  /* ── Modal overlay ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 10, 60, 0.5);
+    z-index: 200;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .modal-box {
+    background: #fff;
+    border-radius: 14px;
+    width: 100%;
+    max-width: 540px;
+    margin: auto;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+  }
+
+  /* ── Step indicator ── */
+  .step-wrap { display:flex;align-items:center;gap:6px;margin-bottom:20px; }
+  .step-dot { width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;border:2px solid #E9D5FF;color:#6B7280;flex-shrink:0; }
+  .step-dot.active { border-color:#7C3AED;color:#7C3AED; }
+  .step-dot.done   { background:#7C3AED;border-color:#7C3AED;color:#fff; }
+  .step-line       { flex:1;height:2px;background:#E9D5FF; }
+  .step-line.done  { background:#7C3AED; }
+
+  /* ── Invoice ── */
+  .invoice-box { background:#F5F3FF;border:1.5px solid #E9D5FF;border-radius:8px;padding:13px;margin:0 0 14px; }
+  .inv-row     { display:flex;justify-content:space-between;font-size:13px;color:#6B7280;margin-bottom:5px; }
+  .inv-total   { display:flex;justify-content:space-between;font-size:15px;font-weight:800;color:#5B21B6;border-top:1.5px solid #E9D5FF;padding-top:8px;margin-top:4px; }
+  .inv-half    { display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:#166534;background:#DCFCE7;border-radius:6px;padding:7px 10px;margin-top:8px; }
+
+  /* ── UPI QR ── */
+  .upi-box  { background:#F5F3FF;border:1.5px solid #E9D5FF;border-radius:8px;padding:20px;text-align:center;margin-bottom:14px; }
+  .upi-id   { font-size:13px;font-weight:700;color:#5B21B6;background:#EDE9FE;padding:6px 14px;border-radius:100px;display:inline-block;margin-top:8px; }
+
+  /* ── Upload area ── */
+  .upload-zone {
+    border: 2px dashed #E9D5FF;
+    border-radius: 8px;
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+    color: #6B7280;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+  .upload-zone:hover { border-color: #A78BFA; color: #5B21B6; }
+  .upload-zone.done  { border-color: #22C55E; background: #DCFCE7; }
+
+  /* ── Oath checkbox ── */
+  .oath-box { display:flex;align-items:flex-start;gap:9px;background:#EDE9FE;border-radius:8px;padding:11px;margin-bottom:14px;border:1px solid #E9D5FF; }
+  .oath-box input { margin-top:2px;accent-color:#7C3AED; }
+  .oath-box label { font-size:12px;color:#5B21B6;line-height:1.5; }
+
+  /* ── GPS toggle ── */
+  .gps-row { display:flex;align-items:center;justify-content:space-between;background:#F5F3FF;border:1px solid #E9D5FF;border-radius:8px;padding:12px 14px;margin-bottom:14px; }
+  .toggle-sw { width:40px;height:22px;background:#7C3AED;border-radius:100px;position:relative;cursor:pointer;flex-shrink:0;transition:background 0.2s; }
+  .toggle-sw::after { content:'';position:absolute;top:3px;right:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:right 0.2s; }
+  .toggle-sw.off { background:#D1D5DB; }
+  .toggle-sw.off::after { right:auto;left:3px; }
+
+  /* ── Time slots ── */
+  .slots-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:14px; }
+  .slot-btn { padding:8px;text-align:center;border:1.5px solid #E9D5FF;border-radius:8px;font-size:12px;cursor:pointer;color:#6B7280;background:#fff;transition:all 0.15s;font-family:inherit; }
+  .slot-btn:hover { border-color:#A78BFA; }
+  .slot-btn.on { border-color:#7C3AED;background:#EDE9FE;color:#5B21B6;font-weight:600; }
+
+  /* ── Form label ── */
+  .f-label { display:block;font-size:11px;font-weight:700;color:#5B21B6;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px; }
+  .f-group { margin-bottom:14px; }
+
+  /* ── City badge pill ── */
+  .city-pill { display:inline-flex;align-items:center;gap:5px;background:#EDE9FE;border:1px solid #E9D5FF;color:#5B21B6;font-size:11px;font-weight:600;padding:4px 11px;border-radius:100px; }
+
+  /* ── Review card ── */
+  .review-card { background:#F5F3FF;border-radius:8px;padding:11px;margin-bottom:8px;border:1px solid #E9D5FF; }
+
+  /* ── Companion photo in card ── */
+  .comp-photo { width:100%;height:160px;object-fit:cover;display:block;background:#EDE9FE; }
+
+  /* ── Companion preview bar in modal ── */
+  .comp-prev { display:flex;align-items:center;gap:12px;background:#F5F3FF;border-radius:8px;padding:13px;margin-bottom:18px;border:1px solid #E9D5FF; }
+  .comp-prev img { width:50px;height:50px;border-radius:50%;object-fit:cover;flex-shrink:0; }
+
+  /* ── Success screen ── */
+  .success-wrap { text-align:center;padding:32px; }
+  .success-icon { font-size:44px;margin-bottom:14px; }
+
+  /* ── Helpline topic row ── */
+  .topic-row { background:#F5F3FF;border:1.5px solid #E9D5FF;border-radius:8px;padding:12px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;font-size:13px;color:#1F2937;transition:all .15s;margin-bottom:7px; }
+  .topic-row:hover { border-color:#A78BFA;background:#EDE9FE; }
+
+  /* ── Stat bar ── */
+  .stat-bar { display:grid;grid-template-columns:repeat(4,1fr);gap:10px;background:#F5F3FF;border-radius:14px;padding:16px;border:1.5px solid #E9D5FF; }
+}
